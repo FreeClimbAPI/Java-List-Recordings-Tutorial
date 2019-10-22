@@ -17,10 +17,10 @@
 
 package main.java.list_recording;
 
-import com.vailsys.persephony.api.PersyClient;
-import com.vailsys.persephony.api.PersyException;
-import com.vailsys.persephony.api.recording.Recording;
-import com.vailsys.persephony.api.recording.RecordingList;
+import com.vailsys.freeclimb.api.FreeClimbClient;
+import com.vailsys.freeclimb.api.FreeClimbException;
+import com.vailsys.freeclimb.api.recording.Recording;
+import com.vailsys.freeclimb.api.recording.RecordingList;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,11 +35,11 @@ public class ListRecordingController {
 
   @RequestMapping("/recordings")
   public ArrayList<Recording> listRecordings() {
-    PersyClient client;
+    FreeClimbClient client;
     RecordingList recordingsList;
 
     try {
-      client = new PersyClient(accountId, authToken); // Create PersyClient object
+      client = new FreeClimbClient(accountId, authToken); // Create FreeClimbClient object
       recordingsList = client.recordings.getMeta(); // Retrieve the paginated list of recordings
 
       // Don't bother trying to grab more pages if there is only one or zero
@@ -59,7 +59,7 @@ public class ListRecordingController {
       }
 
       return allRecordings;
-    } catch (PersyException pe) {
+    } catch (FreeClimbException pe) {
       System.out.println(pe.getMessage());
     }
 
