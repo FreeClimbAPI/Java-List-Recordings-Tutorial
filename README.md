@@ -1,6 +1,6 @@
 # Java - List Recordings Tutorial
 
-This project serves as a guide to help you build an application with FreeClimb. Specifically, the project will:
+This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/list-recordings#section-java). Specifically, the project will:
 
 - List the recordings associated with your account
 
