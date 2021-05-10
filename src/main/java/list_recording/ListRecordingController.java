@@ -29,9 +29,9 @@ import java.util.ArrayList;
 
 @RestController
 public class ListRecordingController {
-  // Get accountID and authToken from environment variables
+  // Get accountID and apiKey from environment variables
   private String accountId = System.getenv("ACCOUNT_ID");
-  private String authToken = System.getenv("AUTH_TOKEN");
+  private String apiKey = System.getenv("API_KEY");
 
   @RequestMapping("/recordings")
   public ArrayList<Recording> listRecordings() {
@@ -39,7 +39,7 @@ public class ListRecordingController {
     RecordingList recordingsList;
 
     try {
-      client = new FreeClimbClient(accountId, authToken); // Create FreeClimbClient object
+      client = new FreeClimbClient(accountId, apiKey); // Create FreeClimbClient object
       recordingsList = client.recordings.getMeta(); // Retrieve the paginated list of recordings
 
       // Don't bother trying to grab more pages if there is only one or zero
